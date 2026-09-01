@@ -17,11 +17,11 @@ export function Footer() {
       <div className="container-edit py-8 grid grid-cols-1 md:grid-cols-[1.3fr,1fr,1fr] gap-8">
         <div>
           <Image
-            src="/images/logo-nav.jpg"
-            alt="Timeless Plastering & Rendering"
-            width={168}
-            height={42}
-            className="h-9 w-auto mb-4"
+            src="/images/logo-transparent.png"
+            alt="Timeless Plastering & Rendering — all aspects of rendering & plastering"
+            width={600}
+            height={200}
+            className="h-11 w-auto mb-4"
           />
           <p className="text-sm text-text-muted-light max-w-xs leading-relaxed">
             Specialist plastering, rendering and Venetian finishes across the North East.

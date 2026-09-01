@@ -1,6 +1,7 @@
 "use client";
 
 import { useRevealOnScroll } from "@/lib/animations";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const reasons = [
   {
@@ -27,12 +28,12 @@ export function WhyTimeless() {
   return (
     <section className="bg-charcoal text-text-light py-16 md:py-24 lg:py-28">
       <div ref={ref} className="container-edit grid grid-cols-1 lg:grid-cols-[0.9fr,1.1fr] gap-8 lg:gap-10">
-        <div data-reveal>
-          <p className="eyebrow text-bronze-light mb-3">Why Timeless</p>
-          <h2 className="font-display font-medium text-3xl md:text-4xl leading-[1.05]">
-            Built on the details that don&apos;t show up in a photo.
-          </h2>
-        </div>
+        <SectionHeading
+          data-reveal
+          tone="light"
+          eyebrow="Why Timeless"
+          title="Built on the details that don't show up in a photo."
+        />
 
         <div data-reveal className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7">
           {reasons.map((reason) => (

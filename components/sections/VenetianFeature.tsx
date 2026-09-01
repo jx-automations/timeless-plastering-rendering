@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRevealOnScroll } from "@/lib/animations";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function VenetianFeature() {
   const ref = useRevealOnScroll<HTMLDivElement>();
@@ -9,10 +10,10 @@ export function VenetianFeature() {
   return (
     <section className="bg-warm-neutral py-16 md:py-24 lg:py-28">
       <div ref={ref} className="container-edit grid grid-cols-1 lg:grid-cols-[1fr,1.1fr] gap-8 lg:gap-10 items-center">
-        <div data-reveal className="relative aspect-[4/5] w-full overflow-hidden order-2 lg:order-1">
+        <div data-reveal className="relative aspect-[3/4] w-full overflow-hidden order-2 lg:order-1">
           <Image
-            src="/images/posters/clip-14.jpg"
-            alt="Detailed interior surface preparation ahead of a decorative plaster finish"
+            src="/images/posters/clip-06.jpg"
+            alt="Close-up of a freshly rendered wall and window reveal"
             fill
             sizes="(min-width: 1024px) 45vw, 100vw"
             className="object-cover"
@@ -20,10 +21,11 @@ export function VenetianFeature() {
         </div>
 
         <div data-reveal className="order-1 lg:order-2">
-          <p className="eyebrow text-bronze mb-3">Venetian Finishes</p>
-          <h2 className="font-display font-medium text-3xl md:text-4xl leading-[1.05] text-text-dark max-w-lg">
-            A surface with depth, texture and character.
-          </h2>
+          <SectionHeading
+            eyebrow="Venetian Finishes"
+            title="A surface with depth, texture and character."
+            className="max-w-lg"
+          />
           <div className="mt-6 space-y-4 max-w-md text-base text-text-dark/75 leading-relaxed">
             <p>
               Venetian plaster is built up in fine, hand-worked layers and burnished

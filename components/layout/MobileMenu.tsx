@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useScrollLock } from "@/lib/useScrollLock";
 
 interface Props {
   open: boolean;
@@ -11,16 +12,10 @@ interface Props {
 export function MobileMenu({ open, onClose, links }: Props) {
   const closeRef = useRef<HTMLButtonElement | null>(null);
 
+  useScrollLock(open);
+
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-      closeRef.current?.focus();
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    if (open) closeRef.current?.focus();
   }, [open]);
 
   useEffect(() => {
@@ -33,14 +28,18 @@ export function MobileMenu({ open, onClose, links }: Props) {
 
   return (
     <div
-      className={`fixed inset-0 z-[60] bg-charcoal transition-opacity duration-base ${
+      className={`fixed inset-0 z-[60] bg-charcoal overscroll-contain transition-opacity duration-base ${
         open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       }`}
+      // Explicit inline fallback: guarantees a fully opaque panel even in the unlikely
+      // event the `bg-charcoal` utility class fails to apply (e.g. a CSS purge edge case).
+      style={{ backgroundColor: "#11110F", touchAction: open ? "none" : undefined }}
       role="dialog"
       aria-modal="true"
       aria-label="Site menu"
+      aria-hidden={!open}
     >
-      <div className="container-edit flex items-center justify-between h-[76px]">
+      <div className="container-edit flex items-center justify-between h-20">
         <span className="eyebrow text-bronze">Menu</span>
         <button
           ref={closeRef}

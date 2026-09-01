@@ -6,10 +6,11 @@ interface Props {
   src: string;
   poster: string;
   label: string;
+  ratio: number;
   className?: string;
 }
 
-export function OnSiteClip({ src, poster, label, className = "" }: Props) {
+export function OnSiteClip({ src, poster, label, ratio, className = "" }: Props) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -28,7 +29,11 @@ export function OnSiteClip({ src, poster, label, className = "" }: Props) {
 
   return (
     <div
-      className={`relative aspect-[9/16] w-[220px] md:w-[260px] shrink-0 overflow-hidden bg-charcoal-2 ${className}`}
+      // Fixed rail height, width follows the clip's own true aspect ratio — vertical
+      // phone-shot reels stay narrow, the handful of landscape-shot ones render wider
+      // in the same horizontal strip, and nothing is ever cropped to a mismatched frame.
+      className={`relative h-[340px] md:h-[400px] shrink-0 overflow-hidden bg-charcoal-2 ${className}`}
+      style={{ aspectRatio: ratio }}
     >
       <video
         ref={videoRef}

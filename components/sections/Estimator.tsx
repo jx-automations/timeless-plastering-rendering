@@ -12,6 +12,7 @@ import {
   type EstimatorAnswers,
 } from "@/lib/pricingConfig";
 import { prefersReducedMotion } from "@/lib/animations";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { EstimatorStep } from "./EstimatorStep";
 import { EstimatorResult } from "./EstimatorResult";
 import { LeadForm } from "./LeadForm";
@@ -74,16 +75,13 @@ export function Estimator() {
   return (
     <section id="estimator" className="bg-charcoal text-text-light py-16 md:py-24 lg:py-28">
       <div className="container-edit">
-        <div className="mb-8 max-w-2xl">
-          <p className="eyebrow text-bronze-light mb-3">Project Estimator</p>
-          <h2 className="font-display font-medium text-3xl md:text-4xl leading-[1.05]">
-            What&apos;s your project likely to cost?
-          </h2>
-          <p className="mt-4 text-text-muted-light leading-relaxed">
-            Answer five quick questions for an instant ballpark estimate — no commitment, no
-            waiting on a callback.
-          </p>
-        </div>
+        <SectionHeading
+          tone="light"
+          eyebrow="Project Estimator"
+          title="What's your project likely to cost?"
+          subtitle="Answer five quick questions for an instant ballpark estimate — no commitment, no waiting on a callback."
+          className="max-w-2xl mb-8"
+        />
 
         <div className="max-w-xl bg-charcoal-2 border border-white/10 p-6 md:p-9">
           {phase === "steps" && (

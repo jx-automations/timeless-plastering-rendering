@@ -1,6 +1,7 @@
 "use client";
 
 import { useRevealOnScroll } from "@/lib/animations";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const reviews = [
   {
@@ -31,12 +32,12 @@ export function Testimonials() {
   return (
     <section className="bg-offwhite py-16 md:py-24 lg:py-28">
       <div ref={ref} className="container-edit">
-        <div data-reveal className="mb-8 max-w-2xl">
-          <p className="eyebrow text-bronze mb-3">What Clients Say</p>
-          <h2 className="font-display font-medium text-3xl md:text-4xl leading-[1.05] text-text-dark">
-            Genuine feedback from finished projects.
-          </h2>
-        </div>
+        <SectionHeading
+          data-reveal
+          eyebrow="What Clients Say"
+          title="Genuine feedback from finished projects."
+          className="max-w-2xl mb-8"
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {reviews.map((review) => (

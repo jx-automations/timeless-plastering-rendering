@@ -1,6 +1,7 @@
 "use client";
 
 import { useRevealOnScroll } from "@/lib/animations";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const steps = [
   {
@@ -34,12 +35,12 @@ export function Process() {
   return (
     <section id="process" className="bg-offwhite py-16 md:py-24 lg:py-28">
       <div ref={ref} className="container-edit">
-        <div data-reveal className="mb-8 max-w-2xl">
-          <p className="eyebrow text-bronze mb-3">The Process</p>
-          <h2 className="font-display font-medium text-3xl md:text-4xl leading-[1.05] text-text-dark">
-            A considered approach from first conversation to final finish.
-          </h2>
-        </div>
+        <SectionHeading
+          data-reveal
+          eyebrow="The Process"
+          title="A considered approach from first conversation to final finish."
+          className="max-w-2xl mb-8"
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-4">
           {steps.map((step, i) => (

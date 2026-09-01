@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ServiceModalProvider } from "@/components/sections/ServiceModalProvider";
 import { Hero } from "@/components/sections/Hero";
 import { TrustStrip } from "@/components/sections/TrustStrip";
 import { IntroSection } from "@/components/sections/IntroSection";
@@ -16,7 +17,7 @@ import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export default function Home() {
   return (
-    <>
+    <ServiceModalProvider>
       <Navbar />
       <main>
         <Hero />
@@ -34,6 +35,6 @@ export default function Home() {
         <FinalCTA />
       </main>
       <Footer />
-    </>
+    </ServiceModalProvider>
   );
 }

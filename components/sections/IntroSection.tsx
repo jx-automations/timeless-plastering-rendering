@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRevealOnScroll } from "@/lib/animations";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function IntroSection() {
   const ref = useRevealOnScroll<HTMLDivElement>();
@@ -10,10 +11,7 @@ export function IntroSection() {
     <section id="about" className="bg-offwhite py-16 md:py-24 lg:py-28">
       <div ref={ref} className="container-edit grid grid-cols-1 lg:grid-cols-[1fr,1fr] gap-8 lg:gap-9 items-center">
         <div data-reveal>
-          <p className="eyebrow text-bronze mb-3">What We Do</p>
-          <h2 className="font-display font-medium text-3xl md:text-4xl leading-[1.05] text-text-dark max-w-lg">
-            More than a coat of finish.
-          </h2>
+          <SectionHeading eyebrow="What We Do" title="More than a coat of finish." className="max-w-lg" />
           <div className="mt-6 space-y-4 max-w-md text-base text-text-dark/75 leading-relaxed">
             <p>
               A great finish starts long before the final coat. The condition of the
@@ -28,7 +26,7 @@ export function IntroSection() {
           </div>
         </div>
 
-        <div data-reveal className="relative aspect-[4/5] w-full overflow-hidden">
+        <div data-reveal className="relative aspect-[3/4] w-full overflow-hidden">
           <Image
             src="/images/project-basecoat.jpg"
             alt="Base-coat rendering applied to a house extension, ready for final finishing"

@@ -29,17 +29,26 @@ export function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-base ${
         scrolled
           ? "bg-charcoal/90 backdrop-blur-md border-b border-white/10"
-          : "bg-transparent border-b border-transparent"
+          : "border-b border-transparent"
       }`}
     >
-      <div className="container-edit flex items-center justify-between h-[76px]">
+      {/* Permanent soft scrim behind the logo/nav row — keeps the transparent-PNG logo and
+          nav links legible over any hero photo, independent of the scrolled bg-charcoal/90 state. */}
+      <div
+        aria-hidden="true"
+        className={`absolute inset-x-0 top-0 h-full bg-gradient-to-b from-charcoal/55 via-charcoal/20 to-transparent transition-opacity duration-base pointer-events-none ${
+          scrolled ? "opacity-0" : "opacity-100"
+        }`}
+      />
+
+      <div className="relative container-edit flex items-center justify-between h-20">
         <Link href="#top" className="flex items-center shrink-0" aria-label="Timeless Plastering & Rendering — home">
           <Image
-            src="/images/logo-nav.jpg"
-            alt="Timeless Plastering & Rendering"
-            width={168}
-            height={42}
-            className="h-9 w-auto"
+            src="/images/logo-transparent.png"
+            alt="Timeless Plastering & Rendering — all aspects of rendering & plastering"
+            width={600}
+            height={200}
+            className="h-10 md:h-12 w-auto"
             priority
           />
         </Link>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRevealOnScroll } from "@/lib/animations";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const faqs = [
   {
@@ -37,12 +38,7 @@ export function FAQ() {
   return (
     <section id="faq" className="bg-offwhite py-16 md:py-24 lg:py-28">
       <div ref={ref} className="container-edit max-w-3xl">
-        <div data-reveal className="mb-8">
-          <p className="eyebrow text-bronze mb-3">FAQ</p>
-          <h2 className="font-display font-medium text-3xl md:text-4xl leading-[1.05] text-text-dark">
-            Common questions.
-          </h2>
-        </div>
+        <SectionHeading data-reveal eyebrow="FAQ" title="Common questions." className="max-w-2xl mb-8" />
 
         <div data-reveal className="divide-y divide-text-dark/12 border-t border-b border-text-dark/12">
           {faqs.map((item, i) => {
