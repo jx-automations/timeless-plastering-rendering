@@ -27,3 +27,5 @@ next-env.d.ts
 
 # raw Instagram asset dump — not part of the deployed site
 /source-assets/
+
+.vercel
